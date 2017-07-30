@@ -1,4 +1,4 @@
-import lodash from 'lodash';
+import lodash from 'lodash'
 
 export default Base =>
   class extends Base {
