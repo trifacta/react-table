@@ -1,3 +1,5 @@
+import lodash from 'lodash';
+
 export default Base =>
   class extends Base {
     componentWillMount () {
@@ -43,6 +45,8 @@ export default Base =>
       // Props that trigger a data update
       if (
         oldState.data !== newState.data ||
+        oldState.resolvedData.length !== newState.data.length ||
+        (newState.deepCompareData && !lodash.isEqual(oldState.data, newState.data)) ||
         oldState.columns !== newState.columns ||
         oldState.pivotBy !== newState.pivotBy ||
         oldState.sorted !== newState.sorted ||
